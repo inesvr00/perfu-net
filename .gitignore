@@ -2,3 +2,7 @@ venv/
 output.txt
 data/test
 data/train
+data/elastix.log
+data/transformix.log
+data/result.0.nii
+data/TransformParameters.0.txt
