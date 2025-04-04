@@ -6,3 +6,8 @@ data/elastix.log
 data/transformix.log
 data/result.0.nii
 data/TransformParameters.0.txt
+utils/__pycache__
+wandb
+graphs
+datasets
+agents/__pycache__
