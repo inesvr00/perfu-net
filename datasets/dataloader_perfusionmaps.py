@@ -20,10 +20,10 @@ class PerfusionDataset(Dataset):
         self.base_dir = base_dir
         self.fold_file = self.base_dir + fold + ".txt"
         self.CT_dir = self.base_dir + 'CT'
-        self.CBF_dir = self.base_dir + 'CBF'
-        self.CBV_dir = self.base_dir + 'CBV'
-        self.Tmax_dir = self.base_dir + 'Tmax'
-        self.MTT_dir = self.base_dir + 'MTT'
+        self.CBF_dir = self.base_dir + 'CTP_CBF' 
+        self.CBV_dir = self.base_dir + 'CTP_CBV'
+        self.Tmax_dir = self.base_dir + 'CTP_Tmax'
+        self.MTT_dir = self.base_dir + 'CTP_MTT'
         self.mask_dir = self.base_dir + 'MASK'
 
         self.file_extension = config.file_extension
@@ -45,7 +45,6 @@ class PerfusionDataset(Dataset):
         # Load the correct files
         validation_cases = np.loadtxt(self.fold_file, delimiter=",")
         validation_cases = [str(int(x)).zfill(2) for x in validation_cases]
-
         CT_name = sorted(glob.glob(self.CT_dir + '{}*{}'.format(os.sep, self.file_extension)))
         CBF_name = sorted(glob.glob(self.CBF_dir + '{}*{}'.format(os.sep, self.file_extension)))
         CBV_name = sorted(glob.glob(self.CBV_dir + '{}*{}'.format(os.sep, self.file_extension)))
@@ -102,7 +101,7 @@ class PerfusionDataLoader:
     def __init__(self, config):
         self.config = config
         self.logger = logging.getLogger("PerfusionDataLoader")
-        self.base_dir = self.config.data_folder
+        self.base_dir = self.config.data_folder 
         self.fold = self.config.fold
         self.img_size = self.config.img_size
         self.clip_length = self.config.clip_length
