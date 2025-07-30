@@ -1,0 +1,9 @@
+venv/
+output.txt
+data/
+graphs/
+wandb/
+datasets/
+__pycache__/
+*.py[cod]
+*.pyc
